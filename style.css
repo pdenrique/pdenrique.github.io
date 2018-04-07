@@ -25,134 +25,22 @@ a:hover{
 	color:#2F98E4; 
 }
 
-.top{
-	height:10vh;
-	min-height:50px;
-	max-height:120px;
+.cardpub {
+	background-color: #fff;
+	box-shadow:0 2px 2px #aaa;
+	cellspacing:10;
+	border-left: 5px solid #0277bd;
 	width:100%;
-	vertical-align: middle;
-	box-shadow:0 3px 3px #aaa;
-	background:#fff;
-	top:0px;
-	position : fixed;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 80%;
-	text-align: center;
-	z-index: 2;
-	color:#000000; 
+	table-layout: fixed;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-	position: fixed;
-	z-index:4;
-	right:60px;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    text-align: right;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.logo{
-	height:10vh;
-	min-height:50px;
-	max-height:120px;
-}
-.ourgoal{
-	width:100vw;
-	height:96vh;
-	font-family: Century Gothic;
-	display:table-cell;
-	vertical-align: middle;
-	font-size: 40px;
-	color:#ddd;
-	text-align: center;
-
-	background-image: url('test3.jpg');
-	background-size:cover;
-	background-position: bottom;
-	background-attachment: fixed;
-	box-shadow: 0px 3px 3px #000;
-}
-
-.ourtechnology{
-	width:100vw;
-	height:60vh;
-	font-family: Century Gothic;
-	display:table-cell;
-	text-align: center;
-	vertical-align: middle;
-	font-size: 40px;
-	color:#ddd;
-	text-align: center;
-
-	background: url("home10.jpg");
-	background-size:cover;
-    background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	box-shadow: 0px 3px 3px #000;
-
-}
-
-.aboutus{
-	width:100vw;
-	height:60vh;
-	font-family: Century Gothic;
-	display:table-cell;
-	text-align: center;
-	vertical-align: middle;
-	font-size: 40px;
-	color:#ddd;
-	text-align: center;
-
-	background: url("home2.png");
-	background-size:cover;
-    background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	box-shadow: 0px 3px 3px #000;
-
-}
-
-.fourthimage{
-	width:100vw;
-	height:30vh;
-	font-family: Century Gothic;
-	display:table-cell;
-	text-align: center;
-	vertical-align: middle;
-	color:#ddd;
-	text-align: center;
-
-	background: #555;
-	background-size:cover;
-    background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	box-shadow: 0px 3px 3px #000;
-
-}
-
-.point{
-	margin:0px;
-	font-family: 'Open Sans', sans-serif;
-	-moz-box-shadow:0 2px 2px #777;
-	-webkit-box-shadow:0 2px 2px #777;
-	box-shadow:0 2px 2px #777;
+.cardconf {
+	background-color: #fff;
+	box-shadow:0 2px 2px #aaa;
+	cellspacing:10;
+	border-left: 5px solid #424242;
 	width:100%;
-	text-align: center;
-    border-spacing:0;
+	table-layout: fixed;
 }
 
 /*  SECTIONS  */
