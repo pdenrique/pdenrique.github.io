@@ -83,21 +83,22 @@ a:hover{
 }
 
 .span_4_of_4 {
-	width: 42%;
-	color:#fff;
-	padding:3%;
-	display: table-cell;
+	vertical-align: middle!important;
+	width: 60%;
+	color:#333;
+	margin-left:12px;
 }
 .span_3_of_4 {
-	width: 93%;
+	width: 32%;
 	color:#fff;
-	padding:3%;
+	padding:0%;
 	display: table-cell;
 	text-align: left;
+
 	font-size: 90%;
 }
 
-/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+/*  GO FULL WIDTH AT LESS THAN 1100 PIXELS */
 
 @media only screen and (max-width: 1100px) {
 	.col { 
@@ -110,7 +111,7 @@ a:hover{
 }
 
 @media only screen and (max-width: 1100px) {
-	.span_3_of_4, .span_4_of_4 { width: 93%; }
+	.span_3_of_4, .span_4_of_4 { width: 93%; text-align: center; }
 }
 
 @media (max-width: 1100px) {
@@ -131,11 +132,12 @@ a:hover{
 }
 
 .type1 {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
 	background: url("pablo.jpg");
 	background-size:cover;
 	background-position: center;
+	margin:0 auto;
 }
 
 @-webkit-keyframes swing
