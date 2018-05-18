@@ -9,7 +9,6 @@ body{
     overflow: auto;
     height:100vh; /* This is needed to overcome a Chrome bug. */
     background:#eeeeee;
-	font-family: 'Open Sans',sans-serif;
 }
 
 a{
@@ -50,7 +49,6 @@ a:hover{
 	margin-left: 10%;
 	margin-right: 10%;
 	color:#555; 
-	font-family: 'Open Sans',sans-serif;
 	overflow: hidden;
 }
 
