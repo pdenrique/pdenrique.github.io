@@ -32,6 +32,7 @@ a:hover{
 	border-left: 5px solid #0277bd;
 	width:100%;
 	table-layout: fixed;
+	position: relative;
 }
 
 .cardconf {
@@ -41,6 +42,16 @@ a:hover{
 	border-left: 5px solid #424242;
 	width:100%;
 	table-layout: fixed;
+	position: relative;
+}
+
+.author {
+	position:absolute;
+	bottom:0;
+	right:0;
+	font-size:80%;
+	background-color:#eeeeee;
+	padding:3px;
 }
 
 /*  SECTIONS  */
