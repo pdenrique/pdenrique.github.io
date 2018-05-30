@@ -45,13 +45,26 @@ a:hover{
 	position: relative;
 }
 
-.author {
+.authorpub {
 	position:absolute;
-	bottom:0;
-	right:0;
+	transform: rotate(270deg);
+	top:19px;
+	left:-38px;
 	font-size:80%;
-	background-color:#eeeeee;
+	background-color:#0277bd;
 	padding:3px;
+	color:white;
+}
+
+.authorconf {
+	position:absolute;
+	transform: rotate(270deg);
+	top:19px;
+	left:-38px;
+	font-size:80%;
+	background-color:#424242;
+	padding:3px;
+	color:white;
 }
 
 /*  SECTIONS  */
