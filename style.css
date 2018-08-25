@@ -19,8 +19,8 @@ a{
   -moz-transition:color .5s ease-out, color .2s;
   -webkit-transition:color .5s ease-out, color .2s;
   transition:color .5s ease-out, color .2s;
-
 }
+
 a:hover{ 
 	color:#2F98E4; 
 }
@@ -35,6 +35,7 @@ a:hover{
 	position: relative;
   	color:#333;
   	font-size:90%;
+   	transition: 1s;
 }
 
 .cardconf {
@@ -47,6 +48,11 @@ a:hover{
 	position: relative;
   	color:#333;
   	font-size:90%;
+   	transition: 1s;
+}
+
+.cardpub:hover, .cardconf:hover, .span_1_of_2:hover{
+	box-shadow:0 3px 2px #aaa;
 }
 
 .authorpub {
@@ -101,6 +107,7 @@ a:hover{
 	padding-right:3%;
 	padding-left:3%;
 	display: table-cell;
+	overflow: auto;
 }
 
 .span_1_of_2 {
@@ -109,6 +116,7 @@ a:hover{
 	box-shadow:0 2px 2px #aaa;
 	padding:3%;
 	display: table-cell;
+  	transition: 1s;
 }
 
 .span_4_of_4 {
