@@ -12,7 +12,7 @@ body{
 }
 
 a{
-  color:#333;
+  	color:#555;
   text-decoration: none;
   -o-transition:color .5s ease-out, color .2s;
   -ms-transition:color .5s ease-out, color .2s;
@@ -33,7 +33,7 @@ a:hover{
 	width:100%;
 	table-layout: fixed;
 	position: relative;
-  	color:#333;
+  	color:#555;
   	font-size:90%;
    	transition: 1s;
 }
@@ -46,7 +46,7 @@ a:hover{
 	width:100%;
 	table-layout: fixed;
 	position: relative;
-  	color:#333;
+  	color:#555;
   	font-size:90%;
    	transition: 1s;
 }
@@ -54,8 +54,8 @@ a:hover{
 .authorpub {
 	position:absolute;
 	transform: rotate(270deg);
-	top:19px;
-	left:-38px;
+	top:10px;
+	left:-10px;
 	font-size:90%;
 	background-color:#0277bd;
 	padding:3px;
@@ -65,12 +65,25 @@ a:hover{
 .authorconf {
 	position:absolute;
 	transform: rotate(270deg);
-	top:19px;
-	left:-38px;
+	top:10px;
+	left:-10px;
 	font-size:90%;
 	background-color:#424242;
 	padding:3px;
 	color:white;
+}
+
+.point{
+	color:#0277bd;
+	font-weight: bold;
+}
+
+.banner{
+	background-color:#fff;
+	background-size:cover;
+	background-position: bottom;
+	background-attachment: fixed;
+	box-shadow: 0px 2px 2px #000;
 }
 
 /*  SECTIONS  */
@@ -79,7 +92,7 @@ a:hover{
 	margin-left: 10%;
 	margin-right: 10%;
 	color:#555; 
-	font-family: 'Arial',sans-serif;
+	font-family: 'Georgia',sans-serif;
 	overflow: hidden;
 }
 
@@ -104,13 +117,12 @@ a:hover{
 	padding-left:3%;
 	display: table-cell;
 	overflow: auto;
-	height:90vh;
 }
 
 .span_1_of_2 {
 	width: 42%;
-	background-color: #eee;
-	padding:3%;
+	padding-right:3%;
+	padding-left:3%;
 	display: table-cell;
   	transition: 1s;
 }
@@ -127,7 +139,7 @@ a:hover{
 	padding:0%;
 	display: table-cell;
 	text-align: left;
-	font-size: 90%;
+	font-size:1090%;
 }
 
 /*  GO FULL WIDTH AT LESS THAN 1100 PIXELS */
