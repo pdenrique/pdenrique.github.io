@@ -19,10 +19,15 @@ a{
   -moz-transition:color .5s ease-out, color .2s;
   -webkit-transition:color .5s ease-out, color .2s;
   transition:color .5s ease-out, color .2s;
+  border: solid; 
+  border-width:1px;
+  padding:3px;
+  border-color:#cccccc;
 }
 
 a:hover{ 
-	color:#2F98E4; 
+	color:#0277bd; 
+	border-color:#0277bd;
 }
 
 .cardpub {
@@ -43,6 +48,19 @@ a:hover{
 	box-shadow:0 2px 2px #aaa;
 	cellspacing:5;
 	border-left: 5px solid #424242;
+	width:100%;
+	table-layout: fixed;
+	position: relative;
+  	color:#555;
+  	font-size:90%;
+   	transition: 1s;
+}
+
+.cardaward {
+	background-color: #fff;
+	box-shadow:0 2px 2px #aaa;
+	cellspacing:5;
+	border-left: 5px solid #b71c1c;
 	width:100%;
 	table-layout: fixed;
 	position: relative;
@@ -92,7 +110,7 @@ a:hover{
 	margin-left: 10%;
 	margin-right: 10%;
 	color:#555; 
-	font-family: 'Georgia',sans-serif;
+	font-family: 'Arial',serif;
 	overflow: hidden;
 }
 
@@ -128,7 +146,7 @@ a:hover{
 }
 
 .span_4_of_4 {
-	vertical-align: middle!important;
+	vertical-align: center!important;
 	width: 60%;
 	color:#333;
 	margin-left:12px;
