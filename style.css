@@ -30,6 +30,70 @@ a:hover{
 	border-color:#0277bd;
 }
 
+.am {
+  background-color: #fff;
+  color:#E57373;
+  border: solid; 
+  border-width:1px;
+  padding:3px;
+  border-color:#E57373;
+  font-size:90%;
+  display: inline-block;
+}
+
+.esd {
+  background-color: #fff;
+  color:#7CB342;
+  border: solid; 
+  border-width:1px;
+  padding:3px;
+  border-color:#7CB342;
+  font-size:90%;
+  display: inline-block;
+}
+
+.ni {
+  background-color: #fff;
+  color:#BA68C8;
+  border: solid; 
+  border-width:1px;
+  padding:3px;
+  border-color:#BA68C8;
+  font-size:90%;
+  display: inline-block;
+}
+
+.mmc {
+  background-color: #fff;
+  color:#FB8C00;
+  border: solid; 
+  border-width:1px;
+  padding:3px;
+  border-color:#FB8C00;
+  font-size:90%;
+  display: inline-block;
+}
+
+.rw {
+  background-color: #fff;
+  color:#795548;
+  border: solid; 
+  border-width:1px;
+  padding:3px;
+  border-color:#795548;
+  font-size:90%;
+  display: inline-block;
+}
+
+.spc {
+  padding:3px;
+  font-size:90%
+}
+
+.rt {
+  float:right;
+}
+
 .cardpub {
 	background-color: #fff;
 	box-shadow:0 2px 2px #aaa;
