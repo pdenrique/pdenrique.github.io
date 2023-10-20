@@ -192,12 +192,11 @@ a:hover{
 
 .circleBase {
     border-radius: 50%;
-    /*behavior: url(PIE.htc); /* remove if you don't care about IE8 */
 }
 
 .type1 {
-    width: 125px;
-    height: 125px;
+    width: 160px;
+    height: 160px;
 	background: url("pablo d enrique 2.jpg");
 	background-size:cover;
 	background-position: center;
