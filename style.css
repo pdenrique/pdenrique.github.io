@@ -149,12 +149,12 @@ a:hover{
 
 .span_4_of_4 {
 	vertical-align: center!important;
-	width: 60%;
+	width: 55%;
 	color:#333;
 	margin-left:12px;
 }
 .span_3_of_4 {
-	width: 32%;
+	width: 40%;
 	color:#fff;
 	padding:0%;
 	display: table-cell;
