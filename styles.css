@@ -46,6 +46,7 @@ a {
 .nav-links {
   list-style: none;
   display: flex;
+  z-index:3;
 }
 
 .nav-links li {
