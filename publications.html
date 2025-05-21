@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications - MySite</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Additional styling specific to the publications page */
+
+    /* Publications area background matches the light gray from the home page */
+    .publications {
+      background: #f4f4f4;
+      padding: 2rem 0;
+    }
+
+    /* Visually Hidden Utility Class
+       This makes text accessible (and searchable) without displaying it */
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap; /* added for extra safety */
+      border: 0;
+    }
+
+    /* Search Section Styling */
+    .search-section {
+      padding: 1rem 0;
+      background: #f9f9f9;
+    }
+    .search-section .container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+    .search-section input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 400px;
+    }
+    .search-section button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      background: #ff6347;
+      color: #fff;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .search-section button:hover {
+      background: #e5533e;
+    }
+
+    /* Publications Grid */
+    .publications .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+    .publication {
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+    .publication:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .publication .pub-img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    .publication h3 {
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+    /* Info symbol styling with tooltip */
+    .publication h3 .info {
+      position: relative;
+      margin-left: 5px;
+      color: #ff6347;
+      cursor: pointer;
+    }
+    .info::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 150%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      padding: 0.5em;
+      border-radius: 4px;
+      white-space: pre-wrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 10;
+      width: max-content;
+      max-width: 200px;
+    }
+    .info:hover::after,
+    .info:focus::after {
+      opacity: 1;
+    }
+
+    .publication .pub-authors {
+      margin-bottom: 0.5rem;
+      font-style: italic;
+      color: #555;
+    }
+    .publication .pub-buttons {
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .publication .pub-buttons a.btn {
+      padding: 0.5rem 1rem;
+      background: #ff6347;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+    .publication .pub-buttons a.btn:hover {
+      background: #e5533e;
+    }
+
+    /* About Us Section Styling */
+    .about .about-container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+    .about .profile {
+      flex: 0 0 auto;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+    .profile-text {
+      flex: 1;
+    }
+
+    /* Responsive adjustments for About Us */
+    @media (max-width: 768px) {
+      .about .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .profile {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar (same as the home page) -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">Home</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+    <section class="about">
+    <div class="container about-container">
+        <div class="profile">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-img" />
+        </div>
+        <div class="profile-text">
+        <h2>Pablo D. Enrique, Ph.D.</h2>
+        <p>
+            Pablo has experience leading and managing technical projects, and generating valuable IP. <br>
+            He now supports advanced manufacturing projects as an adjunct assistant professor at the University of Waterloo, and provides advisory services at ASTM International / Wohlers Associates to increase additive manufacturing adoption in industry.<br>
+            <br>
+            <a href="https://www.linkedin.com/in/penrique/" target="_blank">LinkedIn</a> | <a href="https://scholar.google.ca/citations?user=DJxGbloAAAAJ&hl=en" target="_blank">Google Scholar</a> | <a href="https://www.researchgate.net/profile/Pablo-Enrique" target="_blank">ResearchGate</a>
+        </p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Search Feature -->
+  <section class="search-section">
+    <div class="container">
+      <input type="text" id="pubSearch" placeholder="Search Publications..." />
+      <button id="filterBtn">Search</button>
+    </div>
+  </section>
+
+  <!-- Publications Portfolio Section -->
+  <section class="publications">
+    <div class="container">
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Direct laser synthesis, tuning, and patterning of metal nanoparticles-decorated graphene for flexible temperature sensors
+          <span class="info" tabindex="0" data-tooltip="M Nankali, M Soleimani, P Enrique, P Peng">&#9432;</span>
+          <span class="visually-hidden">Authors: M Nankali, M Soleimani, P Enrique, P Peng</span>
+        </h3>
+        <p class="pub-authors">Materials Today Nano</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1016/j.mtnano.2025.100617" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2025</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Laser powder bed fusion of difficult-to-print γ′ Ni-based superalloys: a review of processing approaches, properties, and remaining challenges
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, T Minasyan, E Toyserkani">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, T Minasyan, E Toyserkani</span>
+        </h3>
+        <p class="pub-authors">Additive Manufacturing</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1016/j.addma.2025.104811" target="_blank" class="btn">Published (open access)</a>
+        </div>
+        <p class="pub-year">2025</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Additive manufacturing of core-shell structures
+          <span class="info" tabindex="0" data-tooltip="P Enrique, SM Kelly">&#9432;</span>
+          <span class="visually-hidden">Authors: P Enrique, SM Kelly</span>
+        </h3>
+        <p class="pub-authors">WO Patent WO2025019505A1</p>
+        <div class="pub-buttons">
+          <a href="https://patentscope.wipo.int/search/en/WO2025019505" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2025</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Systems and methods for using a segmented scan pattern to build large single crystal objects
+          <span class="info" tabindex="0" data-tooltip="PC Lim, P Enrique">&#9432;</span>
+          <span class="visually-hidden">Authors: PC Lim, P Enrique</span>
+        </h3>
+        <p class="pub-authors">WO Patent WO2025007152A2</p>
+        <div class="pub-buttons">
+          <a href="https://patentscope.wipo.int/search/en/WO2025007152" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2025</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Surface functionalization of binder jetted steels through super-solidus liquid phase sintering and electro-spark deposition
+          <span class="info" tabindex="0" data-tooltip="M Yang, J Yan, P Peng, PD Enrique, MK Keshavarz, M Vlasea">&#9432;</span>
+          <span class="visually-hidden">Authors: M Yang, J Yan, P Peng, PD Enrique, MK Keshavarz, M Vlasea</span>
+        </h3>
+        <p class="pub-authors">Surface and Coatings Technology</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1016/j.surfcoat.2024.130994" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2024</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Reducing moisture ingress in flexible sensors with laser patterned polyimide
+          <span class="info" tabindex="0" data-tooltip="N Mao, PD Enrique, P Peng">&#9432;</span>
+          <span class="visually-hidden">Authors: N Mao, PD Enrique, P Peng</span>
+        </h3>
+        <p class="pub-authors">Manufacturing Letters</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1016/j.mfglet.2023.11.001" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2024</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Improving the corrosion resistance of Inconel 52M laser-cladded steel
+          <span class="info" tabindex="0" data-tooltip="MS Khan, JC Lourenço, MIST Faria, P Enrique, G Song, YN Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: MS Khan, JC Lourenço, MIST Faria, P Enrique, G Song, YN Zhou</span>
+        </h3>
+        <p class="pub-authors">Journal of Manufacturing Processes</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1016/j.jmapro.2023.10.003" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2023</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Repair of additive manufactured thin-wall geometry using electrospark deposition
+          <span class="info" tabindex="0" data-tooltip="J Yan, PD Enrique, K Chan, N Scotchmer, P Peng, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: J Yan, PD Enrique, K Chan, N Scotchmer, P Peng, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Journal of Remanufacturing</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1007/s13243-023-00133-0" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2023</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Pulsed laser ablation of electrically insulated features in thin NiCr films
+          <span class="info" tabindex="0" data-tooltip="N Mao, PD Enrique, P Peng">&#9432;</span>
+          <span class="visually-hidden">Authors: N Mao, PD Enrique, P Peng</span>
+        </h3>
+        <p class="pub-authors">The International Journal of Advanced Manufacturing Technology</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1007/s00170-023-12271-7" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2023</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Laser Ablation of Thin Films for Flexible Sensor Manufacturing
+          <span class="info" tabindex="0" data-tooltip="N Mao, PD Enrique, YN Zhou, P Peng">&#9432;</span>
+          <span class="visually-hidden">Authors: N Mao, PD Enrique, YN Zhou, P Peng</span>
+        </h3>
+        <p class="pub-authors">Conference of Metallurgists</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1007/978-3-031-17425-4_8" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2022</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Dynamic response and failure mechanisms of a laser-fabricated flexible thin film strain gauge
+          <span class="info" tabindex="0" data-tooltip="N Mao, PD Enrique, AIH Chen, NY Zhou, P Peng">&#9432;</span>
+          <span class="visually-hidden">Authors: N Mao, PD Enrique, AIH Chen, NY Zhou, P Peng</span>
+        </h3>
+        <p class="pub-authors">Sensors and Actuators A: Physical</p>
+        <div class="pub-buttons">
+          <a href="Dynamic response and failure mechanisms of a laser-fabricated flexible thin film strain gauge.pdf"target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.sna.2022.113655" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2022</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          The influence of in-situ alloying of electro-spark deposited coatings on the multiscale morphological and mechanical properties of laser welded Al–Si coated 22MnB5
+          <span class="info" tabindex="0" data-tooltip="MS Khan, P Enrique, A Ghatei-Kalashami, JG Lopes, N Schell, JP Oliveira, E Biro, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: MS Khan, P Enrique, A Ghatei-Kalashami, JG Lopes, N Schell, JP Oliveira, E Biro, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Materials Science and Engineering: A</p>
+        <div class="pub-buttons">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4004835" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.msea.2022.142830" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2022</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Dissimilar Resistance Welding of Aluminum to Steel using Electrospark Deposition Interlayers
+          <span class="info" tabindex="0" data-tooltip="P Enrique, Caiyin Li, NY Zhou, K Chan, N Scotchmer">&#9432;</span>
+          <span class="visually-hidden">Authors: P Enrique, Caiyin Li, NY Zhou, K Chan, N Scotchmer</span>
+        </h3>
+        <p class="pub-authors">Sheet Metal Welding Conference XIX</p>
+        <div class="pub-buttons">
+          <a href="https://huysindustries.com/wp-content/uploads/Dissimilar-Resistance-Welding-of-Aluminum-to-Steel-using-Electrospark-Deposition-Interlayers.pdf" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2021</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Parametric Study of Automated Electrospark Deposition for Ni-Based Superalloys
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, S Peterkin, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, S Peterkin, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Welding Journal</p>
+        <div class="pub-buttons">
+          <a href="https://s3.amazonaws.com/WJ-www.aws.org/supplement/2021.100.021.pdf" target="_blank" class="btn">Published (open access)</a>
+        </div>
+        <p class="pub-year">2021</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Resistance is not futile: the use of projections for resistance joining of metal additively and conventionally manufactured parts
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, C DiGiovanni, N Mao, R Liang, S Peterkin, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, C DiGiovanni, N Mao, R Liang, S Peterkin, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Journal of Manufacturing Processes</p>
+        <div class="pub-buttons">
+          <a href="Resistance is not futile - The use of projections for resistance joining of metal additively and conventionally manufactured parts.pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.jmapro.2021.04.035" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2021</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Effect of Microsegregation on High‐Temperature Microstructure Evolution in Rapid Solidification Processed Nb‐Rich Ni Superalloys
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, A Keshavarzkermani, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">PD Enrique, A Keshavarzkermani, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Advanced Engineering Materials</p>
+        <div class="pub-buttons">
+          <a href="Effect of Micro-segregation on High Temperature Microstructure Evolution in Rapid Solidification Processed Nb-rich Ni-superalloys.pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1002/adem.202001396" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2021</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Laser-assisted wire cladding using a retrofitted laser welding system
+          <span class="info" tabindex="0" data-tooltip="MS Khan, P Enrique, G Song, MIST Faria, Y Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: MS Khan, P Enrique, G Song, MIST Faria, Y Zhou</span>
+        </h3>
+        <p class="pub-authors">Surface Engineering</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1080/02670844.2020.1820266" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2021</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Effect of microstructure in electrospark deposition repaired conventional and additive manufactured Ni-superalloys
+          <span class="info" tabindex="0" data-tooltip="PD Enrique">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique</span>
+        </h3>
+        <p class="pub-authors">PhD Thesis</p>
+        <div class="pub-buttons">
+          <a href="https://dspacemainprd01.lib.uwaterloo.ca/server/api/core/bitstreams/3f3e32d0-a909-4579-ae7e-439a0932ec75/content" target="_blank" class="btn">Published (open access)</a>
+        </div>
+        <p class="pub-year">2021</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Static recrystallization impact on grain structure and mechanical properties of heat-treated Hastelloy X produced via laser powder-bed fusion
+          <span class="info" tabindex="0" data-tooltip="A Keshavarzkermani, R Esmaeilizadeh, PD Enrique, H Asgari, NY Zhou, A Bonakdar, E Toyserkani">&#9432;</span>
+          <span class="visually-hidden">Authors: A Keshavarzkermani, R Esmaeilizadeh, PD Enrique, H Asgari, NY Zhou, A Bonakdar, E Toyserkani</span>
+        </h3>
+        <p class="pub-authors">Materials Characterization</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1016/j.matchar.2021.110969" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2021</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Enhancing fatigue life of additive manufactured parts with electrospark deposition post-processing
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, A Keshavarzkermani, R Esmaeilizadeh, S Peterkin, H Jahed, E Toyserkani, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, A Keshavarzkermani, R Esmaeilizadeh, S Peterkin, H Jahed, E Toyserkani, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Additive Manufacturing</p>
+        <div class="pub-buttons">
+          <a href="Enhancing Fatigue Life of Additive Manufactured Parts with Electrospark Deposition Post-processing.pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.addma.2020.101526" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2020</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Design of binder jet additive manufactured co-continuous ceramic-reinforced metal matrix composites
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, E Marzbanrad, Y Mahmoodkhani, A Keshavarzkermani, H Almomani, E Toyserkani, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, E Marzbanrad, Y Mahmoodkhani, A Keshavarzkermani, H Almomani, E Toyserkani, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Journal of Materials Science & Technology</p>
+        <div class="pub-buttons">
+          <a href="Design of binder jet additive manufactured co-continuous ceramic-reinforced metal matrix composites.pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.jmst.2020.01.053" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2020</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Electrospark deposition interlayers for dissimilar resistance welding of steel to aluminum
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, C Li, C DiGiovanni, S Peterkin, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, C Li, C DiGiovanni, S Peterkin, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Manufacturing Letters</p>
+        <div class="pub-buttons">
+          <a href="Electrospark Deposition Interlayers for Dissimilar Resistance Welding of Steel to Aluminum.pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.mfglet.2020.04.009" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2020</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Evaluation of electrode degradation and projection weld strength in the joining of steel nuts to galvanized advanced high strength steel
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, H Almomani, C DiGiovanni, Z Jiao, KR Chan, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, H Almomani, C DiGiovanni, Z Jiao, KR Chan, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Journal of Manufacturing Science and Engineering</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1115/1.4044253" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2019</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Controlling mechanical properties of additively manufactured hastelloy X by altering solidification pattern during laser powder-bed fusion
+          <span class="info" tabindex="0" data-tooltip="A Keshavarzkermani, R Esmaeilizadeh, U Ali, PD Enrique, Y Mahmoodkhani, NY Zhou, A Bonakdar, E Toyserkani">&#9432;</span>
+          <span class="visually-hidden">Authors: A Keshavarzkermani, R Esmaeilizadeh, U Ali, PD Enrique, Y Mahmoodkhani, NY Zhou, A Bonakdar, E Toyserkani</span>
+        </h3>
+        <p class="pub-authors">Materials Science and Engineering: A</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1016/j.msea.2019.138081" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2019</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          An investigation into the effect of process parameters on melt pool geometry, cell spacing, and grain refinement during laser powder bed fusion
+          <span class="info" tabindex="0" data-tooltip="A Keshavarzkermani, E Marzbanrad, R Esmaeilizadeh, Y Mahmoodkhani,U Ali, PD Enrique, NY Zhou, A Bonakdar, E Toyserkani">&#9432;</span>
+          <span class="visually-hidden">Authors: A Keshavarzkermani, E Marzbanrad, R Esmaeilizadeh, Y Mahmoodkhani,U Ali, PD Enrique, NY Zhou, A Bonakdar, E Toyserkani</span>
+        </h3>
+        <p class="pub-authors">Optics & Laser Technology</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1016/j.optlastec.2019.03.012" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2019</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Surface modification of binder-jet additive manufactured Inconel 625 via electrospark deposition
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, E Marzbanrad, Y Mahmoodkhani, Z Jiao, E Toyserkani, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, E Marzbanrad, Y Mahmoodkhani, Z Jiao, E Toyserkani, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Surface and Coatings Technology</p>
+        <div class="pub-buttons">
+          <a href="Surface Modification of Binder-Jet Additive Manufactured Inconel 625 via Electrospark Deposition.pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.surfcoat.2019.01.108" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2019</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Effect of direct aging on heat-affected zone and tensile properties of electrospark-deposited alloy 718
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, Z Jiao, NY Zhou, E Toyserkani">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, Z Jiao, NY Zhou, E Toyserkani</span>
+        </h3>
+        <p class="pub-authors">Metallurgical and Materials Transactions A</p>
+        <div class="pub-buttons">
+          <a href="Effect of Direct Aging on Heat-Affected Zone and Tensile Properties of Electrospark-Deposited Alloy 718.pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1007/s11661-018-4997-1" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2019</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          In situ formation of metal matrix composites using binder jet additive manufacturing (3D printing)
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, Y Mahmoodkhani, E Marzbanrad, E Toyserkani, NY Zhou">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, Y Mahmoodkhani, E Marzbanrad, E Toyserkani, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Materials Letters</p>
+        <div class="pub-buttons">
+          <a href="In Situ Formation of Metal Matrix Composites using Binder Jet Additive Manufacturing (3D Printing).pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.matlet.2018.08.117" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2018</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Concurrent photocatalytic degradation of organic contaminants and photocathodic protection of steel Ag–TiO2 composites
+          <span class="info" tabindex="0" data-tooltip="R Liang, OM Schneider, N Lun, PD Enrique, DC Saha, LCMLC Fong">&#9432;</span>
+          <span class="visually-hidden">Authors: R Liang, OM Schneider, N Lun, PD Enrique, DC Saha, LCMLC Fong, I Jaciw-Zurakowsky, MR Servos, P Peng, NY Zhou</span>
+        </h3>
+        <p class="pub-authors">Materialia</p>
+        <div class="pub-buttons">
+          <a href="https://doi.org/10.1016/j.mtla.2018.08.033" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2018</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Effect of microstructure on tensile properties of electrospark deposition repaired Ni-superalloy
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, Z Jiao, NY Zhou, E Toyserkani">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, Z Jiao, NY Zhou, E Toyserkani</span>
+        </h3>
+        <p class="pub-authors">Materials Science and Engineering: A</p>
+        <div class="pub-buttons">
+          <a href="Effect Microstructure Tensile Properties ESD Repaired Ni-superalloy.pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.msea.2018.05.049" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2018</p>
+      </div>
+
+      <div class="publication">
+        <div class="pub-header">
+          <img src="pub1.jpg" alt="Publication 1" class="pub-img" />
+        </div>
+        <h3>
+          Dendritic coarsening model for rapid solidification of Ni-superalloy via electrospark deposition
+          <span class="info" tabindex="0" data-tooltip="PD Enrique, Z Jiao, NY Zhou, E Toyserkani">&#9432;</span>
+          <span class="visually-hidden">Authors: PD Enrique, Z Jiao, NY Zhou, E Toyserkani</span>
+        </h3>
+        <p class="pub-authors">Journal of Materials Processing Technology</p>
+        <div class="pub-buttons">
+          <a href="Post-print Dendritic Coarsening Model for Rapid Solidification of Ni-superalloy via Electrospark Deposition.pdf" target="_blank" class="btn">Preprint</a>
+          <a href="https://doi.org/10.1016/j.jmatprotec.2018.03.023" target="_blank" class="btn">Published</a>
+        </div>
+        <p class="pub-year">2018</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 MySite. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu Toggle and Publications Search -->
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Publications Search Feature – searches all text content within each publication box,
+    // including the hidden abstract text.
+    const pubSearch = document.getElementById('pubSearch');
+    const filterBtn = document.getElementById('filterBtn');
+    const publications = document.querySelectorAll('.publication');
+
+    function filterPublications(term) {
+      term = term.toLowerCase();
+      publications.forEach(pub => {
+        // The full text content is gathered from within the publication box,
+        // including the visually-hidden abstract.
+        let content = pub.textContent.toLowerCase();
+        if (term === "" || content.includes(term)) {
+          pub.style.display = "block";
+        } else {
+          pub.style.display = "none";
+        }
+      });
+    }
+
+    filterBtn.addEventListener('click', () => {
+      filterPublications(pubSearch.value.trim());
+    });
+
+    pubSearch.addEventListener('keyup', () => {
+      filterPublications(pubSearch.value.trim());
+    });
+  </script>
+</body>
+</html>

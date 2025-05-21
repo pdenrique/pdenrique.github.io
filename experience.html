@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Timeline container styles */
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: #ccc;
+      z-index: 1;
+    }
+    /* Each timeline item takes up roughly half the width. 
+       The .education items are positioned on the left; 
+       .work items on the right. */
+    .timeline-item {
+      position: relative;
+      width: 45%;
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      z-index: 2;
+    }
+    /* Education items: align left and right-align text */
+    .timeline-item.education {
+      left: 0;
+      text-align: right;
+    }
+    /* Work items: align right and left-align text */
+    .timeline-item.work {
+      left: 55%;
+      text-align: left;
+    }
+    /* Marker circle for each item. Its color depends on the type. */
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      top: 1rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid;
+    }
+    .timeline-item.education::after {
+      right: -10px;
+      border-color: rgb(255, 217, 0);
+    }
+    .timeline-item.work::after {
+      left: -10px;
+      border-color: #ff6347;
+    }
+    /* Timeline item content */
+    .timeline-date {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-desc {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    /* Responsive adjustments: on narrow screens, stack items full-width */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 20px;
+      }
+      .timeline-item {
+        width: 90%;
+        left: 30px !important;
+        text-align: left !important;
+      }
+      .timeline-item::after {
+        left: -30px !important;
+      }
+    }
+    /* Optional page header styling */
+    .page-header {
+      background: #f4f4f4;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    /* Degree Awarded Card Styling */
+    .degree-card {
+      border: 3px solid rgb(255, 217, 0);
+      background-color: #fff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      left:27.5%;
+      width:45%;
+      text-align: center;
+      position:relative;
+      z-index: 1;
+    }
+
+    .degree-content h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.4rem;
+      color: #333;
+    }
+
+    .degree-content .degree-institution {
+      font-weight: bold;
+      color: #555;
+      margin: 0;
+    }
+
+    .degree-content .degree-date {
+      font-style: italic;
+      color: #999;
+      margin: 0.5rem 0;
+    }
+
+    .degree-content .degree-description {
+      font-size: 1rem;
+      color: #444;
+      margin: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar (same as previous pages) -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">Home</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- About Section -->
+    <section class="about">
+    <div class="container about-container">
+        <div class="profile">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-img" />
+        </div>
+        <div class="profile-text">
+        <h2>Pablo D. Enrique, Ph.D.</h2>
+        <p>
+            Pablo has experience leading and managing technical projects, and generating valuable IP. <br>
+            He now supports advanced manufacturing projects as an adjunct assistant professor at the University of Waterloo, and provides advisory services at ASTM International / Wohlers Associates to increase additive manufacturing adoption in industry.<br>
+            <br>
+            <a href="https://www.linkedin.com/in/penrique/" target="_blank">LinkedIn</a> | <a href="https://scholar.google.ca/citations?user=DJxGbloAAAAJ&hl=en" target="_blank">Google Scholar</a> | <a href="https://www.researchgate.net/profile/Pablo-Enrique" target="_blank">ResearchGate</a>
+        </p>
+        </div>
+    </div>
+  </section>
+  
+  <!-- Page Header -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Milestones</h1>
+      <p>A timeline of academic and work history</p>
+    </div>
+  </header>
+  
+  <!-- Timeline Section -->
+  <section class="timeline-section page-header">
+    <div class="container">
+      <div class="timeline">
+        <!-- Another Milestone -->
+        <div class="timeline-item work">
+          <div class="timeline-date">&nbsp;July 2024 - Present</div>
+          <div class="timeline-title">Additive Manufacturing Project Manager</div>
+          <div class="timeline-desc">
+            Wohlers Associates, Powered by ASTM <br> Contract Full-time
+          </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="timeline-item education">
+          <div class="timeline-date">Oct 2021 - Present&nbsp;</div>
+          <div class="timeline-title">Adjunct Assistant Professor</div>
+          <div class="timeline-desc">
+            University of Waterloo <br> Contract Part-time
+          </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="timeline-item education">
+          <div class="timeline-date">Jul 2023 - Jul 2024&nbsp;</div>
+          <div class="timeline-title">Research Associate</div>
+          <div class="timeline-desc">
+            Multi-Scale Additive Manufacturing Laboratory <br> Contract Full-time
+          </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="timeline-item work">
+          <div class="timeline-date">&nbsp;Jul 2020 - Jul 2024</div>
+          <div class="timeline-title">Advanced Process R&D Specialist</div>
+          <div class="timeline-desc">
+            Forcen Inc. <br> Contract Part-time </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="timeline-item work">
+          <div class="timeline-date">&nbsp;Jun 2021 - Jul 2023</div>
+          <div class="timeline-title">Senior Additive Manufacturing Specialist</div>
+          <div class="timeline-desc">
+            Beehive Industries <br> Permanent Full-time </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="degree-card">
+          <div class="degree-content">
+            <div class="timeline-title">PhD, Mechanical Engineering</div>
+            <div class="timeline-desc">University of Waterloo | 2017 - 2021</div>
+          </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="timeline-item education">
+          <div class="timeline-date">May 2017 - Apr 2021&nbsp;</div>
+          <div class="timeline-title">Research Assistant</div>
+          <div class="timeline-desc">
+            Centre for Advanced Materials Joining (CAMJ) <br> Contract Full-time
+          </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="degree-card">
+          <div class="degree-content">
+            <div class="timeline-title">BASc, Nanotechnology Engineering</div>
+            <div class="timeline-desc">University of Waterloo | 2012 - 2017</div>
+          </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="timeline-item work">
+          <div class="timeline-date">&nbsp;Jan 2016 - Aug 2016</div>
+          <div class="timeline-title">Research Assistant</div>
+          <div class="timeline-desc">
+            Kingston Process Metallurgy Inc. <br> Internship </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="timeline-item work">
+          <div class="timeline-date">&nbsp;Aug 2014 - Mar 2015</div>
+          <div class="timeline-title">R&D Engineering Intern</div>
+          <div class="timeline-desc">
+            Lumentum (JDSU) <br> Internship </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="timeline-item work">
+          <div class="timeline-date">&nbsp;Jan 2014 - Apr 2014</div>
+          <div class="timeline-title">Process Control Engineering Intern</div>
+          <div class="timeline-desc">
+            INEOS Styrolution <br> Internship </div>
+        </div>
+        <!-- Another Milestone -->
+        <div class="timeline-item education">
+          <div class="timeline-date">Apr 2013 - Aug 2013&nbsp;</div>
+          <div class="timeline-title">Research Assistant</div>
+          <div class="timeline-desc">
+            Advanced Micro/Nano Devices Laboratory <br> Internship </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer (consistent with other pages) -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 MySite. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- JavaScript for Mobile Menu Toggle -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
